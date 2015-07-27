@@ -43,9 +43,7 @@ extension Firebase {
                 }
             })
             
-            return AnonymousDisposable{
-            
-            }
+            return AnonymousDisposable{}
         })
     }
     
@@ -61,9 +59,7 @@ extension Firebase {
                 }
             })
             
-            return AnonymousDisposable{
-                
-            }
+            return AnonymousDisposable{}
         })
     }
     

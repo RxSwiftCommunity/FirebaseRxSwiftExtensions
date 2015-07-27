@@ -37,4 +37,15 @@ public extension Firebase {
         }
     }
     
+    func run(){
+        rx_firebaseObserveSingleEvent(.Value)
+            >- subscribe(next: { (snapshot) -> Void in
+                
+            }, error: { (error) -> Void in
+                
+            }, completed: { () -> Void in
+                println("This signal never completes")
+            })
+    }
+    
 }
