@@ -3,12 +3,14 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 language: objective-c
+osx_image: xcode6.4
 # cache: cocoapods
 # podfile: Example/Podfile
 # before_install:
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
 install:
+- gem install cocoapods --no-rdoc --no-ri --no-document --quiet
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
 - set -o pipefail && xcodebuild test -workspace Example/FirebaseRxSwiftExtensions.xcworkspace -scheme FirebaseRxSwiftExtensions-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
