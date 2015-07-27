@@ -22,7 +22,7 @@ pod "FirebaseRxSwiftExtensions"
 
 ## Author
 
-Maximilian Alexander, max@zinkpulse.com
+Maximilian Alexander, mbalex99.com
 
 ## License
 

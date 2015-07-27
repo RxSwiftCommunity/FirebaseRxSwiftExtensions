@@ -2,7 +2,6 @@
   "name": "FirebaseRxSwiftExtensions",
   "version": "0.1.0",
   "summary": "RxSwift method Extensions on Firebase's Objects to create highly functional responsive systems",
-  "description": "An optional longer description of FirebaseRxSwiftExtensions\n\n* Markdown format.\n* Don't worry about the indent, we strip it!",
   "homepage": "https://github.com/mbalex99/FirebaseRxSwiftExtensions",
   "license": "MIT",
   "authors": {
@@ -21,8 +20,7 @@
     ]
   },
   "platforms": {
-    "ios": "8.0",
-    "osx": "10.9"
+    "ios": "8.0"
   },
   "frameworks": [
     "CFNetwork",

@@ -17,7 +17,6 @@ Pod::Spec.new do |s|
     'FirebaseRxSwiftExtensions' => ['Pod/Assets/*.png']
   }
   s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.9'
   s.frameworks = ['CFNetwork', 'Security', 'Firebase', 'SystemConfiguration']
   s.libraries = ['icucore', 'c++']
   s.dependency 'Firebase', '~> 2.3.3'

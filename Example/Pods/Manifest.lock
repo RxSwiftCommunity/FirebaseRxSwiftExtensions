@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: 2db60272f68ce40c7d47e5ae6eddc16977c65d4c
-  FirebaseRxSwiftExtensions: 00b042e46d8e2239f53c1eff31508352d73a500a
+  FirebaseRxSwiftExtensions: 8388efbe0fc1558fc2c8a9f0bcced740a1dcc3c8
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
   RxSwift: 7f3af11a6923f772d21a1e2723f7be660c6ee24f
