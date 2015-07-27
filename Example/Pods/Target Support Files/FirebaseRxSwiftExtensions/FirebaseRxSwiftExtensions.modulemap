@@ -1,0 +1,6 @@
+framework module FirebaseRxSwiftExtensions {
+  umbrella header "FirebaseRxSwiftExtensions-umbrella.h"
+
+  export *
+  module * { export * }
+}
