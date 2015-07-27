@@ -58,10 +58,41 @@ extension Firebase {
                     
                 }
             })
+            return AnonymousDisposable{}
+        })
+    }
+    
+    
+    func rx_firebaseSetValue(value: AnyObject!) -> Observable<Firebase> {
+        return create({ (observer :ObserverOf<Firebase>) -> Disposable in
+            
+            self.setValue(value, withCompletionBlock: { (error, firebase) -> Void in
+                if error != nil {
+                    sendError(observer, error)
+                }else{
+                    sendNext(observer, firebase)
+                    sendCompleted(observer)
+                }
+            })
             
             return AnonymousDisposable{}
         })
     }
     
+    func rx_firebaseSetValue(value: AnyObject!, priority : AnyObject! ) -> Observable<Firebase> {
+        return create({ (observer :ObserverOf<Firebase>) -> Disposable in
+            
+            self.setValue(value, andPriority: priority, withCompletionBlock: { (error, firebase) -> Void in
+                if error != nil {
+                    sendError(observer, error)
+                }else{
+                    sendNext(observer, firebase)
+                    sendCompleted(observer)
+                }
+            })
+            
+            return AnonymousDisposable{}
+        })
+    }
     
 }

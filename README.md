@@ -46,7 +46,7 @@ With these extensions you can create `Observable<FDataSnapshot>`
             println(snapshot.value)
         }
 
-## Simple Examples
+## Retrieve Data Examples
 
 Perpetually listening to an event is rather simple. Just specify the `FEventType`.
 
@@ -97,9 +97,16 @@ In addition, I've added two methods that extend Firebase's login methods
     rx_firebaseAuthUser(email: String, password: String) -> Observable<FAuthData>
     rx_firebaseAuthAnonymousUser() -> Observable<FAuthData>
 
-Support for their 3rd party authentication (Twitter, Facebook etc...) is coming soon. 
+Support for their 3rd party authentication (Twitter, Facebook etc...) is coming soon.
 
+## Update or Insert Data Examples
 
+You can also update or insert data with:
+
+    rx_firebaseSetValue(value: AnyObject!) -> Observable<Firebase>
+    rx_firebaseSetValue(value: AnyObject!, priority : AnyObject! ) -> Observable<Firebase>
+
+These signals are atomic and do complete.
 
 ## Author
 
