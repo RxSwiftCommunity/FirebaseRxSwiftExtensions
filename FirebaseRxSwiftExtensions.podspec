@@ -4,12 +4,6 @@ Pod::Spec.new do |s|
   s.name             = "FirebaseRxSwiftExtensions"
   s.version          = "0.1.0"
   s.summary          = "RxSwift method Extensions on Firebase's Objects to create highly functional responsive systems"
-  s.description      = <<-DESC
-                       An optional longer description of FirebaseRxSwiftExtensions
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
   s.homepage         = "https://github.com/mbalex99/FirebaseRxSwiftExtensions"
   s.license          = 'MIT'
   s.author           = { "Maximilian Alexander" => "mbalex99@gmail.com" }
@@ -22,6 +16,8 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'FirebaseRxSwiftExtensions' => ['Pod/Assets/*.png']
   }
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
   s.frameworks = ['CFNetwork', 'Security', 'Firebase', 'SystemConfiguration']
   s.libraries = ['icucore', 'c++']
   s.dependency 'Firebase', '~> 2.3.3'

@@ -20,6 +20,10 @@
       "Pod/Assets/*.png"
     ]
   },
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9"
+  },
   "frameworks": [
     "CFNetwork",
     "Security",
