@@ -20,6 +20,34 @@ it, simply add the following line to your Podfile:
 pod "FirebaseRxSwiftExtensions"
 ```
 
+In your code use:
+
+    import FirebaseRxSwiftExtensions
+
+## Description
+
+This is a set of helper extension methods for Firebase's iOS library that creates Observable<FDataSnapshot> and Observable<FAuthData>
+from their listener APIs.
+
+For example a regular Firebase listener without RxSwift might look like this:
+
+    // Get a reference to our posts
+    var ref = Firebase(url:"https://docs-examples.firebaseio.com/web/saving-data/fireblog/posts")
+
+    // Attach a closure to read the data at our posts reference
+    ref.observeEventType(.Value, withBlock: { snapshot in
+        println(snapshot.value)
+    }, withCancelBlock: { error in
+        println(error.description)
+    })
+
+With these extensions you can create Observable<FDataSnapshot> 
+
+    ref.rx_firebaseObserveEvent(.Value)
+        >- subscribeNext { snapshot in
+            println(snapshot.value)
+        }
+
 ## Author
 
 Maximilian Alexander, mbalex99.com
