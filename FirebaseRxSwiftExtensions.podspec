@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FirebaseRxSwiftExtensions"
-  s.version          = "0.1.0"
+  s.version          = "0.2"
   s.summary          = "RxSwift method Extensions on Firebase's Objects to create highly functional responsive systems"
   s.homepage         = "https://github.com/mbalex99/FirebaseRxSwiftExtensions"
   s.license          = 'MIT'
