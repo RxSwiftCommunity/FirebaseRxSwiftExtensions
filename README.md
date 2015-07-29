@@ -96,6 +96,7 @@ In addition, I've added two methods that extend Firebase's login methods
 
     rx_firebaseAuthUser(email: String, password: String) -> Observable<FAuthData>
     rx_firebaseAuthAnonymousUser() -> Observable<FAuthData>
+    rx_firebaseAuthWithCustomToken(authToken: String) -> Observable<FAuthData>
 
 Support for their 3rd party authentication (Twitter, Facebook etc...) is coming soon.
 
