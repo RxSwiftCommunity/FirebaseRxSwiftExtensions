@@ -1,6 +1,6 @@
 {
   "name": "FirebaseRxSwiftExtensions",
-  "version": "0.3",
+  "version": "0.4",
   "summary": "RxSwift method Extensions on Firebase's Objects to create highly functional responsive systems",
   "homepage": "https://github.com/mbalex99/FirebaseRxSwiftExtensions",
   "license": "MIT",
@@ -9,14 +9,13 @@
   },
   "source": {
     "git": "https://github.com/mbalex99/FirebaseRxSwiftExtensions.git",
-    "tag": "0.3"
+    "tag": "0.4"
   },
   "social_media_url": "https://twitter.com/mbalex99",
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
+  "source_files": "Pod/Classes/**/*.swift",
   "platforms": {
-    "ios": "8.0",
-    "osx": "10.8"
+    "ios": "8.0"
   },
   "frameworks": [
     "CFNetwork",
