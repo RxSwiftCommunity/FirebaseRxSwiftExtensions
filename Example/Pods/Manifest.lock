@@ -1,6 +1,6 @@
 PODS:
   - Firebase (2.3.3)
-  - FirebaseRxSwiftExtensions (0.1.0):
+  - FirebaseRxSwiftExtensions (0.2):
     - Firebase (~> 2.3.3)
     - RxSwift (~> 1.8.1)
   - Nimble (1.0.0)
@@ -18,9 +18,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: 2db60272f68ce40c7d47e5ae6eddc16977c65d4c
-  FirebaseRxSwiftExtensions: 8388efbe0fc1558fc2c8a9f0bcced740a1dcc3c8
+  FirebaseRxSwiftExtensions: d4f98bef2d4f676b3a00416578635ff430c130e6
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
   RxSwift: 7f3af11a6923f772d21a1e2723f7be660c6ee24f
 
-COCOAPODS: 0.38.0
+COCOAPODS: 0.38.2

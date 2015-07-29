@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import Firebase
 
-extension Firebase {
+public extension Firebase {
     
     
     /// Observing FAuthData. This will only send a value if the user is logged in. If the user is not authenticated in it will not send anything
@@ -58,6 +58,22 @@ extension Firebase {
                     
                 }
             })
+            return AnonymousDisposable{}
+        })
+    }
+    
+    func rx_firebaseAuthWithCustomToken(authToken : String) -> Observable<FAuthData> {
+        return create({ (observer: ObserverOf<FAuthData>) -> Disposable in
+            
+            self.authWithCustomToken(authToken, withCompletionBlock: { (error, authData) -> Void in
+                if(error != nil){
+                    sendError(observer, error)
+                }else{
+                    sendNext(observer, authData)
+                    sendCompleted(observer)
+                }
+            })
+            
             return AnonymousDisposable{}
         })
     }
