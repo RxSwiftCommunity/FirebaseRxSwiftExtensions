@@ -1,2 +1,0 @@
-FIREBASERXSWIFTEXTENSIONS_FRAMEWORK_SEARCH_PATHS = "${PODS_ROOT}/Firebase"
-FIREBASERXSWIFTEXTENSIONS_OTHER_LDFLAGS = -l"c++" -l"icucore" -framework "CFNetwork" -framework "Firebase" -framework "Security" -framework "SystemConfiguration"

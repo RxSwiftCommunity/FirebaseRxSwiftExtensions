@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FirebaseRxSwiftExtensions"
-  s.version          = "0.5"
+  s.version          = "0.6"
   s.summary          = "RxSwift method Extensions on Firebase's Objects to create highly functional responsive systems"
   s.homepage         = "https://github.com/mbalex99/FirebaseRxSwiftExtensions"
   s.license          = 'MIT'
@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
   s.libraries = ['icucore', 'c++']
   s.dependency 'Firebase', '~> 2.3.3'
   s.dependency 'RxSwift', '~> 1.8.1'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Firebase"' }
+s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Firebase"', "OTHER_LDFLAGS" => "-ObjC" }
 end
