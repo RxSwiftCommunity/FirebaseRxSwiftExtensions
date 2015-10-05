@@ -36,6 +36,69 @@ public extension FQuery {
     }
     
     
+    func rx_authAnonymously() -> Observable<FAuthData> {
+        let query = self;
+        return create({ (observer: ObserverOf<FAuthData>) -> Disposable in
+            query.ref.authAnonymouslyWithCompletionBlock({ (error, authData) -> Void in
+                if let error = error {
+                    observer.on(.Error(error))
+                }else{
+                    observer.on(.Next(authData))
+                    observer.on(.Completed)
+                }
+            })
+            
+            return AnonymousDisposable{}
+        })
+    }
+    
+    func rx_authWithOAuthProvider(provider: String, parameters: [NSObject: AnyObject]) -> Observable<FAuthData> {
+        let query = self;
+        return create({ (observer: ObserverOf<FAuthData>) -> Disposable in
+            query.ref.authWithOAuthProvider(provider, parameters: parameters, withCompletionBlock: { (error, authData) -> Void in
+                if let error = error {
+                    observer.on(.Error(error))
+                }else{
+                    observer.on(.Next(authData))
+                    observer.on(.Completed)
+                }
+            })
+            return AnonymousDisposable{}
+        })
+    }
+    
+    
+    func rx_authWithOAuthProvider(provider: String, token: String) -> Observable<FAuthData> {
+        let query = self;
+        return create({ (observer: ObserverOf<FAuthData>) -> Disposable in
+            query.ref.authWithOAuthProvider(provider, token: token, withCompletionBlock: { (error, authData) -> Void in
+                if let error = error {
+                    observer.on(.Error(error))
+                }else{
+                    observer.on(.Next(authData))
+                    observer.on(.Completed)
+                }
+            })
+            return AnonymousDisposable{}
+        })
+    }
+    
+    func rx_authWithCustomToken(customToken: String) -> Observable<FAuthData> {
+        let query = self;
+        return create({ (observer: ObserverOf<FAuthData>) -> Disposable in
+            query.ref.authWithCustomToken(customToken, withCompletionBlock: { (error, authData) -> Void in
+                if let error = error {
+                    observer.on(.Error(error))
+                }else{
+                    observer.on(.Next(authData))
+                    observer.on(.Completed)
+                }
+            })
+            return AnonymousDisposable{}
+        })
+    }
+    
+    
     func rx_observe(eventType: FEventType) -> Observable<FDataSnapshot> {
         let ref = self;
         return create({ (observer : ObserverOf<FDataSnapshot>) -> Disposable in

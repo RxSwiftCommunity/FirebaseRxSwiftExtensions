@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FirebaseRxSwiftExtensions"
-  s.version          = "2.0.0.2"
+  s.version          = "2.0.0.3"
   s.summary          = "Untangle your messy Firebase code with RxSwift Extension Methods"
 
   s.description      = "Firebase is a block or closure based API, unfortunately doing anything robust takes a lot of nesting.
