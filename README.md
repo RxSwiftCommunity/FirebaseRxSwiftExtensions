@@ -23,6 +23,23 @@ it, simply add the following line to your Podfile:
 pod "FirebaseRxSwiftExtensions"
 ```
 
+### Highly Recommended
+
+I highly recommend always having a `disposeBag` available in every controller. 
+It's very important to dispose the subscription or else Firebase may never stop listening when ViewControllers are deallocated
+
+If you are referencing a weak variable in your `subscribe` or `subscribeNext` blocks, please make sure to use `[unowned self]` to prevent
+a retain cycle. 
+
+For example: 
+
+    @IBOutlet weak var nameLabel: UILabel!
+
+    query.rx_observe('ChildAdded')
+        .subscribeNext{ [unowned self] snapshot in 
+            self.nameLabel.text = snapshot.value["name"] as! String
+        }
+
 ### Observe a Snapshot
 
 The `rx_observe(eventType: FEventType)` method observes a Firebase reference or a FQuery for its snapshot.
