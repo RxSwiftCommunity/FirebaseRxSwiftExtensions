@@ -12,7 +12,6 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B970D4E27E66CBE4DDB6C2B9 /* Pods_FirebaseRxSwiftExtensions_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A4D277A90BD22F3586C68B /* Pods_FirebaseRxSwiftExtensions_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C2676CC862DBA1CA2E1D199E /* Pods_FirebaseRxSwiftExtensions_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652ACE5CF7804AD207FC9B3D /* Pods_FirebaseRxSwiftExtensions_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* FirebaseRxSwiftExtensions_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirebaseRxSwiftExtensions_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		652ACE5CF7804AD207FC9B3D /* Pods_FirebaseRxSwiftExtensions_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseRxSwiftExtensions_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8CB302390DC400CFFD87FA /* FirebaseRxSwiftExtensions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FirebaseRxSwiftExtensions.podspec; path = ../FirebaseRxSwiftExtensions.podspec; sourceTree = "<group>"; };
 		8CA2364B1ADB31868BAB3391 /* Pods-FirebaseRxSwiftExtensions_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseRxSwiftExtensions_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseRxSwiftExtensions_Tests/Pods-FirebaseRxSwiftExtensions_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -368,7 +365,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

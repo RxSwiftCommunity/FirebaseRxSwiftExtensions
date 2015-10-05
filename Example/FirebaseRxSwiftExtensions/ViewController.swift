@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import Firebase
 import FirebaseRxSwiftExtensions
 
 class ViewController: UIViewController {
@@ -15,8 +17,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let test = Test()
-        test.username == "max"
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
