@@ -44,7 +44,6 @@
 		3BC283FE081A9F5911CB84B22B2C572B /* ObserveOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE54B891FE67CCCCA2166D33DE513F4B /* ObserveOn.swift */; };
 		3DADADA69DEC95F31F73F8B950A0D153 /* InfiniteSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E33BEF464ECEB2BC11DF9A733651A3 /* InfiniteSequence.swift */; };
 		3EF5734B7ECE187B5968CBA16970DC17 /* RefCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691A0031119FF004F21EF2171AA7DC5B /* RefCount.swift */; };
-		3FAA0BD4E53DA275AA621A005C2AF5F7 /* FirebaseRxSwiftExtensions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EE4B7B1FE8AF84A1A0241AEC4585C0 /* FirebaseRxSwiftExtensions-dummy.m */; };
 		47243072DDA7862EF5DFB05C34601466 /* Producer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FF0E1FCB1AF1990A5BA2B10F7418F /* Producer.swift */; };
 		48E744EAC0ED9DB524CF8FB7BF12B8DA /* Cancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1EFACACB6D8FE3FA906EF4C1B18FB8 /* Cancelable.swift */; };
 		491420736063F2E2A2DA528C8CDA1446 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CEF6BE6024C15DA72F11FD3203C221 /* Sample.swift */; };
@@ -101,13 +100,13 @@
 		A270B71086BBDE1E87085CDC0F108EC5 /* FlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628B40CF926CF03498564F3E6D560855 /* FlatMap.swift */; };
 		A3424D2A5461D5C44E4477E8A8FBD9B7 /* Multicast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DF9097B3547486FE8468A935AF6C9 /* Multicast.swift */; };
 		A3430145246C9462F4D00ECD3AAE24D8 /* OperationQueueScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ACB082348FD0FAFD8B51412B31C779 /* OperationQueueScheduler.swift */; };
+		A6982A333B5DEE4F97F43E037E12DE67 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D0C8B8F1E771340EC645B8E7AB040C /* Methods.swift */; };
 		A8E952E58A92D014F665F3C51AED5D5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6111EC57F196803FD51D35C26E185B15 /* Foundation.framework */; };
 		A9FAFF1A9861E8D9477896D5E3C81722 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3EF4648D352D153E72EC23E5B0C715 /* Lock.swift */; };
 		AD692FCEBF29223F329D02464BE28FDC /* SerialDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E98F0FD3EA638C0C1E1A97A262FD27 /* SerialDisposable.swift */; };
 		AE1F13D978321077F4FD7B332B950E27 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDD96903D4E2BEE6FC338F170727D9A /* Zip.swift */; };
 		AE2C96F414E034D6D7B4ED5A73C8AE60 /* Pods-FirebaseRxSwiftExtensions_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6AE299ABD4AF7554A3F9F2FE796D74 /* Pods-FirebaseRxSwiftExtensions_Tests-dummy.m */; };
 		B0916EE7A331D84A239522505DAB6E17 /* Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCEE9691D54B23D212F7C51C1DD070 /* Sink.swift */; };
-		B3182FF9EAE5B06415D55D85BF0DD8DD /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C8750D2BDF2F936E2DFE5B54E17F6 /* Methods.swift */; };
 		B9FD635A86F907DE78608E33E94988B9 /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7F95B48069D0AA5DEF02FE4ED6F33 /* Throttle.swift */; };
 		BA7A14B3D797610F8C41E657A1CA288B /* Generate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DED69B2C89F82C46DD4F9DD6069D46 /* Generate.swift */; };
 		BB2A7610F67737676CD902263CB8F2E4 /* CombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D752FA686B9EE1ADD58B7F576028EE /* CombineLatest.swift */; };
@@ -138,6 +137,7 @@
 		E3FBB5B462A14E8ACC9B340227DE4BE1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519383B5BE21FB8AE815ABE6FD74001F /* CFNetwork.framework */; };
 		E60FA42EEC3ECC48701DB55986D25D69 /* FConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = D6CAF796D9FF115F9EE703782EB6E8CF /* FConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8B534D15D2B25919ACD898217266891 /* FDataSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 344DBA39B46299771E856D005657D7A9 /* FDataSnapshot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE9852F8550848DBAB132EDABAC5E4DD /* FirebaseRxSwiftExtensions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EE4B7B1FE8AF84A1A0241AEC4585C0 /* FirebaseRxSwiftExtensions-dummy.m */; };
 		F25CB380394A33357DD6B7A36A70E212 /* MainScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D165A4E17C1CF0D7E7B9DE2BE7EA6D9E /* MainScheduler.swift */; };
 		F4079E28C8B872386BC00A86A4551797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6111EC57F196803FD51D35C26E185B15 /* Foundation.framework */; };
 		F408CDB90AC48D4CC0468F8EB45C96CC /* Repeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712E3937163D96BE72D79B9D7A64448 /* Repeat.swift */; };
@@ -340,6 +340,7 @@
 		B507B88E9AD8FDF7DF9F598A892AFCD1 /* ObserverOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObserverOf.swift; path = RxSwift/ObserverOf.swift; sourceTree = "<group>"; };
 		B5A54505A677A90DDD42621931EFD3B3 /* Skip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Skip.swift; path = RxSwift/Observables/Implementations/Skip.swift; sourceTree = "<group>"; };
 		B6459E59F80A975882C88ABFB61C4265 /* StartWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StartWith.swift; path = RxSwift/Observables/Implementations/StartWith.swift; sourceTree = "<group>"; };
+		B8D0C8B8F1E771340EC645B8E7AB040C /* Methods.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
 		B93FBCF0FA1F83B04C53387CB77AD496 /* Observable+Multiple.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Observable+Multiple.swift"; path = "RxSwift/Observables/Observable+Multiple.swift"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BC52802E9188D781E0AD38902FCB7D57 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -356,7 +357,6 @@
 		C88755D6913D96D3E2EDDB5E627BA987 /* Never.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Never.swift; path = RxSwift/Observables/Implementations/Never.swift; sourceTree = "<group>"; };
 		C93A806CA5F14F1C4EA0BD52FE060E16 /* Just.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Just.swift; path = RxSwift/Observables/Implementations/Just.swift; sourceTree = "<group>"; };
 		CCFB54CDC5CA7D5A1158E0417284F578 /* Pods-FirebaseRxSwiftExtensions_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FirebaseRxSwiftExtensions_Tests-umbrella.h"; sourceTree = "<group>"; };
-		D02C8750D2BDF2F936E2DFE5B54E17F6 /* Methods.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
 		D165A4E17C1CF0D7E7B9DE2BE7EA6D9E /* MainScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MainScheduler.swift; path = RxSwift/Schedulers/MainScheduler.swift; sourceTree = "<group>"; };
 		D1977EA22C064754190F65E47FC53AA7 /* RxSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RxSwift-dummy.m"; sourceTree = "<group>"; };
 		D54437D5EBE851EF813AC05CC756167C /* CombineLatest+CollectionType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CombineLatest+CollectionType.swift"; path = "RxSwift/Observables/Implementations/CombineLatest+CollectionType.swift"; sourceTree = "<group>"; };
@@ -492,6 +492,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1828BF111F642DA962CBE7E71EB488B3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B8D0C8B8F1E771340EC645B8E7AB040C /* Methods.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		24F2ABED262FDC86A0C9657F569F7D1B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,18 +514,10 @@
 			path = "../Target Support Files/Firebase";
 			sourceTree = "<group>";
 		};
-		271952BC5FEF266CBA1AA9B9B0FEF217 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				D02C8750D2BDF2F936E2DFE5B54E17F6 /* Methods.swift */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		4661D77DEA69F0134A44496BE7442169 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				271952BC5FEF266CBA1AA9B9B0FEF217 /* Classes */,
+				1828BF111F642DA962CBE7E71EB488B3 /* Classes */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
@@ -859,7 +859,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20B1DBE09F81F3223ABCDEF5388FD6AF /* Build configuration list for PBXNativeTarget "FirebaseRxSwiftExtensions" */;
 			buildPhases = (
-				94E3659A593D625FD95F2F22F2DB9799 /* Sources */,
+				032BCDBC5B597B99DAC4A5D77A415C10 /* Sources */,
 				4ECFCEC500A0DEF1D59ABCAD0CA1EA95 /* Frameworks */,
 				394D8F29BC5C99AE051A9BB3B8E47496 /* Resources */,
 				EEE1F7835FB93F5370F0CFFD20230DA2 /* Headers */,
@@ -980,6 +980,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		032BCDBC5B597B99DAC4A5D77A415C10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE9852F8550848DBAB132EDABAC5E4DD /* FirebaseRxSwiftExtensions-dummy.m in Sources */,
+				A6982A333B5DEE4F97F43E037E12DE67 /* Methods.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		10E705943D52FB44EF2ACE1F373908F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1001,15 +1010,6 @@
 			files = (
 				012A7E018F3D34F159894EBD7EACACF9 /* Empty.m in Sources */,
 				1D9D7FF5237C8CC91EF58DC45AC274FB /* Firebase-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		94E3659A593D625FD95F2F22F2DB9799 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3182FF9EAE5B06415D55D85BF0DD8DD /* Methods.swift in Sources */,
-				3FAA0BD4E53DA275AA621A005C2AF5F7 /* FirebaseRxSwiftExtensions-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1232,7 +1232,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 050F3B6BA7F2CC2C2ED7156250D3A819 /* Firebase.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1247,11 +1246,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Firebase;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1276,7 +1273,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/RxSwift/RxSwift.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = RxSwift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1304,7 +1300,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1330,7 +1325,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 050F3B6BA7F2CC2C2ED7156250D3A819 /* Firebase.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1345,7 +1339,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Firebase;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1375,7 +1368,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_FirebaseRxSwiftExtensions_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1404,7 +1396,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/RxSwift/RxSwift.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = RxSwift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1435,7 +1426,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_FirebaseRxSwiftExtensions_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1463,7 +1453,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FirebaseRxSwiftExtensions/FirebaseRxSwiftExtensions.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FirebaseRxSwiftExtensions;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1492,7 +1481,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FirebaseRxSwiftExtensions/FirebaseRxSwiftExtensions.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = FirebaseRxSwiftExtensions;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1534,7 +1522,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_FirebaseRxSwiftExtensions_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1565,7 +1552,6 @@
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_FirebaseRxSwiftExtensions_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
