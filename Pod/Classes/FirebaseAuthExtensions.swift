@@ -8,7 +8,7 @@ public extension FQuery {
     /**
         - Returns: An `Observable<FAuthData?>`, `FAuthData?` will be nil if the user is logged out.
     */
-    var rx_observeAuth :Observable<FAuthData?> {
+    var rx_authObservable :Observable<FAuthData?> {
         get {
             return create({ (observer: ObserverOf<FAuthData?>) -> Disposable in
                 let ref = self.ref;
