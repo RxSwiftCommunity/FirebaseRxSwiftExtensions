@@ -8,23 +8,18 @@
 
 Pod::Spec.new do |s|
   s.name             = "FirebaseRxSwiftExtensions"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of FirebaseRxSwiftExtensions."
+  s.version          = "2.0.0-alpha.4"
+  s.summary          = "Untangle your messy Firebase code with RxSwift Extension Methods"
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
+  s.description      = "Firebase is a block or closure based API, unfortunately doing anything robust takes a lot of nesting.
+ This makes your code get out hand very fast. RxSwift 2.0.0-alpha.4 or higher is required. Swift 2 and XCode 7 are required."
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/FirebaseRxSwiftExtensions"
+  s.homepage         = "https://github.com/mbalex99/FirebaseRxSwiftExtensions"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Maximilian Alexander" => "max@zinkpulse.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/FirebaseRxSwiftExtensions.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Maximilian Alexander" => "mbalex99@gmail.com" }
+  s.source           = { :git => "https://github.com/mbalex99/FirebaseRxSwiftExtensions.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/mbalex99'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -36,5 +31,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'Firebase', '~> 2.4.1.1'
+  s.dependency 'RxSwift', '~> 2.0.0-alpha.4'
 end
