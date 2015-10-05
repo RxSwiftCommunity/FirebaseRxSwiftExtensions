@@ -23,8 +23,15 @@ it, simply add the following line to your Podfile:
 pod "FirebaseRxSwiftExtensions"
 ```
 
+## Modules Needed
+
+import Firebase
+import RxSwift
+import FirebaseRxSwiftExtensions
+
 ### Highly Recommended
 
+## Use DiposeBags
 I highly recommend always having a `disposeBag` available in every controller. 
 It's very important to dispose the subscription or else Firebase may never stop listening when ViewControllers are deallocated
 
@@ -32,13 +39,19 @@ If you are referencing a weak variable in your `subscribe` or `subscribeNext` bl
 a retain cycle. 
 
 For example: 
-
+    
+    
+    var disposeBag = DisposeBag()
     @IBOutlet weak var nameLabel: UILabel!
+    override func viewDidLoad(animated: bool) 
+        // .. stuff
 
-    query.rx_observe('ChildAdded')
-        .subscribeNext{ [unowned self] snapshot in 
-            self.nameLabel.text = snapshot.value["name"] as! String
-        }
+        query.rx_observe('ChildAdded')
+            .subscribeNext{ [unowned self] snapshot in 
+                self.nameLabel.text = snapshot.value["name"] as! String
+            }
+            .addDisposableTo(disposeBag)
+    }
 
 ### Observe a Snapshot
 
@@ -107,7 +120,12 @@ More authentication methods to come!
     
 ## Convenience methods
 
-    You can check if a snapshot has a value or not by these two extension methods
+You can check if a snapshot has a value or not by these two extension methods. They operate on `Observable<FDataSnapshot>`
+
+- `rx_filterWhenNSNull()`
+- `rx_filterWhenNotNSNull()`
+
+They'll be pretty useful for 
 
 ## Author
 
