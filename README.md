@@ -65,7 +65,7 @@ I didn't create an observeSingleEvent rx method. Simply just do a `take(1)` on a
 
 ### Set and Update values
 
-These are relatively straighforward. The operate exactly like their native Firebase equivalents
+These are relatively straight forward. The operate exactly like their native Firebase equivalents
 
 - `rx_setValues`
 - `rx_updateChildValues` 
@@ -84,14 +84,13 @@ You can easily observe your authentication state
             }
         }
 
+You can authenicate your application relatively easily with `rx_auth(email: String, password: String)`
+
+More authentication methods to come! 
     
 ## Convenience methods
 
     You can check if a snapshot has a value or not by these two extension methods
-
-
-    
-
 
 ## Author
 
