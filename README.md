@@ -74,7 +74,8 @@ To listen for a snapshot and it's siblingKey. This is useful events like FEventT
 
 Cool hint: You can name parts of your tuple to make things easier
 
-let query = Firebase(url: "myUrl").queryOrderedByChild("height")
+```swift
+    let query = Firebase(url: "myUrl").queryOrderedByChild("height")
 
     query.rx_observeWithSiblingKey(.ChildRemoved)
         .subscribeNext{ (tuple: (snapshot: FDataSnapshot, siblingKey: String) in 
@@ -82,6 +83,7 @@ let query = Firebase(url: "myUrl").queryOrderedByChild("height")
             print(tuple.snapshot)
             print(tuple.siblingKey)
         }
+```
 
 
 ### Observe a Snapshot Once 
