@@ -40,7 +40,7 @@ a retain cycle.
 
 For example: 
     
-    
+```swift
     var disposeBag = DisposeBag()
     @IBOutlet weak var nameLabel: UILabel!
     override func viewDidLoad(animated: bool) 
@@ -52,11 +52,13 @@ For example:
             }
             .addDisposableTo(disposeBag)
     }
+```
 
 ### Observe a Snapshot
 
 The `rx_observe(eventType: FEventType)` method observes a Firebase reference or a FQuery for its snapshot.
 
+```swift
     let query = Firebase(url: "myUrl").queryOrderedByChild("height")
     query.rx_observe(.ChildAdded)
         .subscribeNext{ (snapshot: FDataSnapshot) in 
@@ -71,6 +73,7 @@ To listen for a snapshot and it's siblingKey. This is useful events like FEventT
         .subscribeNext{ (tuple: (FDataSnapshot, String) in 
             // The tuple contains the snapshot and the sibling key 
         }
+```
 
 Cool hint: You can name parts of your tuple to make things easier
 
@@ -90,10 +93,12 @@ Cool hint: You can name parts of your tuple to make things easier
 
 I didn't create an observeSingleEvent rx method. Simply just do a `take(1)` on an FQuery or Firebase reference.
 
+```swift
     queryOrRef.rx_observe(.ChildAdded).take(1)
         .subscribeNext{ (snapshot: FDataSnapshot) in
             //this snapshot is fired once and the listener is disposed of as soon as it fires just once.
         }
+```
 
 ### Set and Update values
 
@@ -106,6 +111,7 @@ These are relatively straight forward. The operate exactly like their native Fir
 
 You can easily observe your authentication state
 
+```swift
     let ref = Firebase(url: "myUrl")
     ref.rx_authObservable()
         .subscribeNext{ authData in 
@@ -115,8 +121,17 @@ You can easily observe your authentication state
                 print("You are NOT logged in")
             }
         }
+```
 
-You can authenicate your application relatively easily with `rx_auth(email: String, password: String)`
+You can authenicate with respective methods 
+
+```swift
+    rx_auth(email: String, password: String) -> Observable<FAuthData>
+    rx_authWithCustomToken(customToken: String) -> Observable<FAuthData>
+    rx_authWithOAuthProvider(provider: String, token: String) -> Observable<FAuthData>
+    rx_authWithOAuthProvider(provider: String, parameters: [NSObject: AnyObject]) -> Observable<FAuthData>
+    rx_authAnonymously() -> Observable<FAuthData>
+```
 
 More authentication methods to come! 
     
