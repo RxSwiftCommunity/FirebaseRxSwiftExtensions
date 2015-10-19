@@ -11,8 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-This library is built on Swift 2.1 and needs XCode 7 to work. 
-This library is build for RxSwift 2.0.0-alpha 4 or higher. Please take note of the syntax changes. 
+This library is built on Swift 2.1 and needs XCode 7 to work.
+This library is build for RxSwift 2.0.0-alpha 4 or higher. Please take note of the syntax changes.
 
 ## Installation
 
@@ -32,22 +32,22 @@ import FirebaseRxSwiftExtensions
 ### Highly Recommended
 
 ## Use DiposeBags
-I highly recommend always having a `disposeBag` available in every controller. 
+I highly recommend always having a `disposeBag` available in every controller.
 It's very important to dispose the subscription or else Firebase may never stop listening when ViewControllers are deallocated
 
 If you are referencing a weak variable in your `subscribe` or `subscribeNext` blocks, please make sure to use `[unowned self]` to prevent
-a retain cycle. 
+a retain cycle.
 
-For example: 
-    
+For example:
+
 ```swift
     var disposeBag = DisposeBag()
     @IBOutlet weak var nameLabel: UILabel!
-    override func viewDidLoad(animated: bool) 
+    override func viewDidLoad(animated: bool)
         // .. stuff
 
         query.rx_observe('ChildAdded')
-            .subscribeNext{ [unowned self] snapshot in 
+            .subscribeNext{ [unowned self] snapshot in
                 self.nameLabel.text = snapshot.value["name"] as! String
             }
             .addDisposableTo(disposeBag)
@@ -61,7 +61,7 @@ The `rx_observe(eventType: FEventType)` method observes a Firebase reference or 
 ```swift
     let query = Firebase(url: "myUrl").queryOrderedByChild("height")
     query.rx_observe(.ChildAdded)
-        .subscribeNext{ (snapshot: FDataSnapshot) in 
+        .subscribeNext{ (snapshot: FDataSnapshot) in
             //do something with your snapshot
         }
 
@@ -70,8 +70,8 @@ To listen for a snapshot and it's siblingKey. This is useful events like FEventT
     let query = Firebase(url: "myUrl").queryOrderedByChild("height")
 
     query.rx_observeWithSiblingKey(.ChildRemoved)
-        .subscribeNext{ (tuple: (FDataSnapshot, String) in 
-            // The tuple contains the snapshot and the sibling key 
+        .subscribeNext{ (tuple: (FDataSnapshot, String) in
+            // The tuple contains the snapshot and the sibling key
         }
 ```
 
@@ -81,15 +81,15 @@ Cool hint: You can name parts of your tuple to make things easier
     let query = Firebase(url: "myUrl").queryOrderedByChild("height")
 
     query.rx_observeWithSiblingKey(.ChildRemoved)
-        .subscribeNext{ (tuple: (snapshot: FDataSnapshot, siblingKey: String) in 
-            // The tuple contains the snapshot and the sibling key 
+        .subscribeNext{ (tuple: (snapshot: FDataSnapshot, siblingKey: String) in
+            // The tuple contains the snapshot and the sibling key
             print(tuple.snapshot)
             print(tuple.siblingKey)
         }
 ```
 
 
-### Observe a Snapshot Once 
+### Observe a Snapshot Once
 
 I didn't create an observeSingleEvent rx method. Simply just do a `take(1)` on an FQuery or Firebase reference.
 
@@ -105,25 +105,25 @@ I didn't create an observeSingleEvent rx method. Simply just do a `take(1)` on a
 These are relatively straight forward. The operate exactly like their native Firebase equivalents
 
 - `rx_setValues`
-- `rx_updateChildValues` 
+- `rx_updateChildValues`
 
-## Authentication 
+## Authentication
 
 You can easily observe your authentication state
 
 ```swift
     let ref = Firebase(url: "myUrl")
     ref.rx_authObservable()
-        .subscribeNext{ authData in 
+        .subscribeNext{ authData in
             if let authData == authData {
                 print("You're logged in, authData is not nil")
-            }else{ 
+            }else{
                 print("You are NOT logged in")
             }
         }
 ```
 
-You can authenicate with respective methods 
+You can authenicate with respective methods
 
 ```swift
     rx_auth(email: String, password: String) -> Observable<FAuthData>
@@ -133,16 +133,14 @@ You can authenicate with respective methods
     rx_authAnonymously() -> Observable<FAuthData>
 ```
 
-More authentication methods to come! 
-    
+More authentication methods to come!
+
 ## Convenience methods
 
 You can check if a snapshot has a value or not by these two extension methods. They operate on `Observable<FDataSnapshot>`
 
 - `rx_filterWhenNSNull()`
 - `rx_filterWhenNotNSNull()`
-
-They'll be pretty useful for 
 
 ## Author
 
