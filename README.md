@@ -46,7 +46,7 @@ For example:
     override func viewDidLoad(animated: bool)
         // .. stuff
 
-        query.rx_observe('ChildAdded')
+        query.rx_observe(FEventType.ChildAdded)
             .subscribeNext{ [unowned self] snapshot in
                 self.nameLabel.text = snapshot.value["name"] as! String
             }
