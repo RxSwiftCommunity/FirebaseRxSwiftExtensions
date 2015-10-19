@@ -12,7 +12,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 This library is built on Swift 2.1 and needs XCode 7 to work.
-This library is build for RxSwift 2.0.0-alpha 4 or higher. Please take note of the syntax changes.
+This library is build for RxSwift 2.0.0-alpha 4 or higher. Please take note of the syntax changes when migrating from an
+older version of Swift to Swift 2 or higher.
 
 ## Installation
 
