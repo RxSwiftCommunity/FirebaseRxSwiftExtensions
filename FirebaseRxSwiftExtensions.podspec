@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FirebaseRxSwiftExtensions"
-  s.version          = "2.0.0.3"
+  s.version          = "2.0.1"
   s.summary          = "Untangle your messy Firebase code with RxSwift Extension Methods"
 
   s.description      = "Firebase is a block or closure based API, unfortunately doing anything robust takes a lot of nesting.
@@ -31,6 +31,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Firebase', '~> 2.4.1.1'
-  s.dependency 'RxSwift', '~> 2.0.0-alpha.4'
+  s.dependency 'Firebase', '~> 2.4.2'
+  s.dependency 'RxSwift', '~> 2.0.0-beta.1'
 end
