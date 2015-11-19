@@ -32,5 +32,5 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'Firebase', '~> 2.4.2'
-  s.dependency 'RxSwift', '~> 2.0.0-beta.1'
+  s.dependency 'RxSwift', '~> 2.0.0-beta.3'
 end

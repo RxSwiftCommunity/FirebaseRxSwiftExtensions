@@ -5,7 +5,6 @@
 //  Created by Katherine Fang on 7/30/14.
 //
 
-#import <Accounts/Accounts.h>
 #import "FAuthType.h"
 
 

@@ -9,13 +9,20 @@
 import Foundation
 
 // optimized version of share replay for most common case
-class ShareReplay1<Element> : Observable<Element>, ObserverType {
+final class ShareReplay1<Element>
+    : Observable<Element>
+    , ObserverType
+    , SynchronizedUnsubscribeType {
+
+    typealias DisposeKey = Bag<AnyObserver<Element>>.KeyType
+
     private let _source: Observable<Element>
 
-    private let _lock = NSRecursiveLock()
+    private var _lock = NSRecursiveLock()
 
-    private var _subscription: Disposable?
+    private var _connection: SingleAssignmentDisposable?
     private var _element: Element?
+    private var _stopped = false
     private var _stopEvent = nil as Event<Element>?
     private var _observers = Bag<AnyObserver<Element>>()
 
@@ -24,54 +31,71 @@ class ShareReplay1<Element> : Observable<Element>, ObserverType {
     }
 
     override func subscribe<O : ObserverType where O.E == E>(observer: O) -> Disposable {
-        return _lock.calculateLocked {
-            if let element = self._element {
-                observer.on(.Next(element))
-            }
+        _lock.lock(); defer { _lock.unlock() }
+        return _synchronized_subscribe(observer)
+    }
 
-            if let stopEvent = self._stopEvent {
-                observer.on(stopEvent)
-                return NopDisposable.instance
-            }
+    func _synchronized_subscribe<O : ObserverType where O.E == E>(observer: O) -> Disposable {
+        if let element = self._element {
+            observer.on(.Next(element))
+        }
 
-            let initialCount = self._observers.count
+        if let stopEvent = self._stopEvent {
+            observer.on(stopEvent)
+            return NopDisposable.instance
+        }
 
-            let observerKey = self._observers.insert(AnyObserver(observer))
+        let initialCount = self._observers.count
 
-            if initialCount == 0 {
-                self._subscription = self._source.subscribe(self)
-            }
+        let disposeKey = self._observers.insert(AnyObserver(observer))
 
-            return AnonymousDisposable {
-                self._lock.performLocked {
-                    self._observers.removeKey(observerKey)
+        if initialCount == 0 {
+            let connection = SingleAssignmentDisposable()
+            _connection = connection
 
-                    if self._observers.count == 0 {
-                        self._subscription?.dispose()
-                        self._subscription = nil
-                    }
-                }
-            }
+            connection.disposable = self._source.subscribe(self)
+        }
+
+        return SubscriptionDisposable(owner: self, key: disposeKey)
+    }
+
+    func synchronizedUnsubscribe(disposeKey: DisposeKey) {
+        _lock.lock(); defer { _lock.unlock() }
+        _synchronized_unsubscribe(disposeKey)
+    }
+
+    func _synchronized_unsubscribe(disposeKey: DisposeKey) {
+        // if already unsubscribed, just return
+        if self._observers.removeKey(disposeKey) == nil {
+            return
+        }
+
+        if _observers.count == 0 {
+            _connection?.dispose()
+            _connection = nil
         }
     }
 
     func on(event: Event<E>) {
-        _lock.performLocked {
-            if self._stopEvent != nil {
-                return
-            }
+        _lock.lock(); defer { _lock.unlock() }
+        _synchronized_on(event)
+    }
 
-            if case .Next(let element) = event {
-                self._element = element
-            }
-
-            if event.isStopEvent {
-                self._stopEvent = event
-            }
-
-            _observers.forEach { o in
-                o.on(event)
-            }
+    func _synchronized_on(event: Event<E>) {
+        if _stopped {
+            return
         }
+
+        switch event {
+        case .Next(let element):
+            _element = element
+        case .Error, .Completed:
+            _stopEvent = event
+            _stopped = true
+            _connection?.dispose()
+            _connection = nil
+        }
+
+        _observers.on(event)
     }
 }

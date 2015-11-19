@@ -190,13 +190,12 @@ Writing all of this and properly testing it would be tedious. This is that same 
   searchTextField.rx_text
     .throttle(0.3, MainScheduler.sharedInstance)
     .distinctUntilChanged()
-    .map { query in
+    .flatMapLatest { query in
         API.getSearchResults(query)
             .retry(3)
             .startWith([]) // clears results on new search term
             .catchErrorJustReturn([])
     }
-    .switchLatest()
     .subscribeNext { results in
       // bind to ui
     }
@@ -456,7 +455,7 @@ Open Rx.xcworkspace, choose `RxExample` and hit run. This method will build ever
 
 ### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
 
-**:warning: IMPORTANT! For tvOS support through CocoaPods use [this hack](https://github.com/orta/cocoapods-expert-difficulty) until `0.39` is released. :warning:**
+**:warning: IMPORTANT! For tvOS support CocoaPods `0.39` is required. :warning:**
 
 ```
 # Podfile
@@ -475,10 +474,12 @@ $ pod install
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
+**Xcode 7.1 required**
+
 Add this to `Cartfile`
 
 ```
-git "git@github.com:ReactiveX/RxSwift.git" "2.0.0-beta.1"
+github "ReactiveX/RxSwift" "2.0.0-beta.3"
 ```
 
 ```

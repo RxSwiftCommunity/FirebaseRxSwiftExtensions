@@ -1,9 +1,9 @@
 PODS:
-  - Firebase (2.4.2)
+  - Firebase (2.4.3)
   - FirebaseRxSwiftExtensions (2.0.1):
     - Firebase (~> 2.4.2)
-    - RxSwift (~> 2.0.0-beta.1)
-  - RxSwift (2.0.0-beta.1)
+    - RxSwift (~> 2.0.0-beta.3)
+  - RxSwift (2.0.0-beta.3)
 
 DEPENDENCIES:
   - FirebaseRxSwiftExtensions (from `../`)
@@ -13,8 +13,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Firebase: 5e898ed5012c81d28ca5fae1113c6b61a172bc6d
-  FirebaseRxSwiftExtensions: 0b41a48654000257d4cfb62f8b3957691310405a
-  RxSwift: a9b0f4d876eac130cda0ae2f3fba627be3baf3ef
+  Firebase: 48179995b561e2262c5d4060ecdffca45fbbff8b
+  FirebaseRxSwiftExtensions: f789e39383fb908a8eb338de9b869f897680801a
+  RxSwift: 19fbe885b404d1d36d42ac8535134739a9b42952
 
 COCOAPODS: 0.39.0
