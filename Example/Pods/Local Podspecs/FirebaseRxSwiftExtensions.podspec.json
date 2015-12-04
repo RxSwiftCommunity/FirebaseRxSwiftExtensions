@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "Firebase": [
-      "~> 2.4.2"
+      "~> 2.4.3"
     ],
     "RxSwift": [
       "~> 2.0.0-beta.3"
