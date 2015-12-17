@@ -115,15 +115,15 @@ public extension FQuery {
     /**
     - Returns: A tuple `Observable<(FDataSnapshot, String)>` with the first value as the snapshot and the second value as the sibling key
     */
-    func rx_observeWithSiblingKey(eventType: FEventType) -> Observable<(FDataSnapshot, String)> {
+    func rx_observeWithSiblingKey(eventType: FEventType) -> Observable<(FDataSnapshot, String?)> {
         let ref = self;
         
-        return create({ (observer : AnyObserver<(FDataSnapshot, String)>) -> Disposable in
+        return create({ (observer : AnyObserver<(FDataSnapshot, String?)>) -> Disposable in
             let listener = ref.observeEventType(eventType, andPreviousSiblingKeyWithBlock: { (snapshot, siblingKey) -> Void in
-                let tuple : (FDataSnapshot, String) = (snapshot, siblingKey)
+                let tuple : (FDataSnapshot, String?) = (snapshot, siblingKey)
                 observer.on(.Next(tuple))
-                }, withCancelBlock: { (error) -> Void in
-                    observer.on(.Error(error))
+            }, withCancelBlock: { (error) -> Void in
+                observer.on(.Error(error))
             })
             return AnonymousDisposable{
                 ref.removeObserverWithHandle(listener)
