@@ -1,10 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'FirebaseRxSwiftExtensions_Example', :exclusive => true do
+target 'FirebaseRxSwiftExtensions_Example' do
   pod "FirebaseRxSwiftExtensions", :path => "../"
 end
 
-target 'FirebaseRxSwiftExtensions_Tests', :exclusive => true do
+target 'FirebaseRxSwiftExtensions_Tests' do
   pod "FirebaseRxSwiftExtensions", :path => "../"
 end

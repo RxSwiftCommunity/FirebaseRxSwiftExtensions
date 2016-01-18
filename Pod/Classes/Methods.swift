@@ -8,7 +8,7 @@ public extension FQuery {
     */
     var rx_authObservable :Observable<FAuthData?> {
         get {
-            return create({ (observer: AnyObserver<FAuthData?>) -> Disposable in
+            return Observable.create({ (observer: AnyObserver<FAuthData?>) -> Disposable in
                 let ref = self.ref;
                 let listener = ref.observeAuthEventWithBlock({ (authData: FAuthData?) -> Void in
                     observer.on(.Next(authData))
@@ -22,7 +22,7 @@ public extension FQuery {
     
     func rx_authUser(email: String, password: String) -> Observable<FAuthData> {
         let query = self;
-        return create({ (observer: AnyObserver<FAuthData>) -> Disposable in
+        return Observable.create({ (observer: AnyObserver<FAuthData>) -> Disposable in
             query.ref.authUser(email, password: password, withCompletionBlock: { (error, authData) -> Void in
                 if let error = error {
                     observer.on(.Error(error))
@@ -38,7 +38,7 @@ public extension FQuery {
     
     func rx_authAnonymously() -> Observable<FAuthData> {
         let query = self;
-        return create({ (observer: AnyObserver<FAuthData>) -> Disposable in
+        return Observable.create({ (observer: AnyObserver<FAuthData>) -> Disposable in
             query.ref.authAnonymouslyWithCompletionBlock({ (error, authData) -> Void in
                 if let error = error {
                     observer.on(.Error(error))
@@ -54,7 +54,7 @@ public extension FQuery {
     
     func rx_authWithOAuthProvider(provider: String, parameters: [NSObject: AnyObject]) -> Observable<FAuthData> {
         let query = self;
-        return create({ (observer: AnyObserver<FAuthData>) -> Disposable in
+        return Observable.create({ (observer: AnyObserver<FAuthData>) -> Disposable in
             query.ref.authWithOAuthProvider(provider, parameters: parameters, withCompletionBlock: { (error, authData) -> Void in
                 if let error = error {
                     observer.on(.Error(error))
@@ -70,7 +70,7 @@ public extension FQuery {
     
     func rx_authWithOAuthProvider(provider: String, token: String) -> Observable<FAuthData> {
         let query = self;
-        return create({ (observer: AnyObserver<FAuthData>) -> Disposable in
+        return Observable.create({ (observer: AnyObserver<FAuthData>) -> Disposable in
             query.ref.authWithOAuthProvider(provider, token: token, withCompletionBlock: { (error, authData) -> Void in
                 if let error = error {
                     observer.on(.Error(error))
@@ -85,7 +85,7 @@ public extension FQuery {
     
     func rx_authWithCustomToken(customToken: String) -> Observable<FAuthData> {
         let query = self;
-        return create({ (observer: AnyObserver<FAuthData>) -> Disposable in
+        return Observable.create({ (observer: AnyObserver<FAuthData>) -> Disposable in
             query.ref.authWithCustomToken(customToken, withCompletionBlock: { (error, authData) -> Void in
                 if let error = error {
                     observer.on(.Error(error))
@@ -101,7 +101,7 @@ public extension FQuery {
     
     func rx_observe(eventType: FEventType) -> Observable<FDataSnapshot> {
         let ref = self;
-        return create({ (observer : AnyObserver<FDataSnapshot>) -> Disposable in
+        return Observable.create({ (observer : AnyObserver<FDataSnapshot>) -> Disposable in
             let listener = ref.observeEventType(eventType, withBlock: { (snapshot) -> Void in
                 observer.on(.Next(snapshot))
                 }, withCancelBlock: { (error) -> Void in
@@ -118,7 +118,7 @@ public extension FQuery {
     func rx_observeWithSiblingKey(eventType: FEventType) -> Observable<(FDataSnapshot, String?)> {
         let ref = self;
         
-        return create({ (observer : AnyObserver<(FDataSnapshot, String?)>) -> Disposable in
+        return Observable.create({ (observer : AnyObserver<(FDataSnapshot, String?)>) -> Disposable in
             let listener = ref.observeEventType(eventType, andPreviousSiblingKeyWithBlock: { (snapshot, siblingKey) -> Void in
                 let tuple : (FDataSnapshot, String?) = (snapshot, siblingKey)
                 observer.on(.Next(tuple))
@@ -136,7 +136,7 @@ public extension FQuery {
     */
     func rx_updateChildValues(values: [NSObject: AnyObject!]) -> Observable<Firebase> {
         let query = self
-        return create({ (observer: AnyObserver<Firebase>) -> Disposable in
+        return Observable.create({ (observer: AnyObserver<Firebase>) -> Disposable in
             query.ref.updateChildValues(values, withCompletionBlock: { (error, firebase) -> Void in
                 if let error = error {
                     observer.on(.Error(error))
@@ -154,7 +154,7 @@ public extension FQuery {
     
     func rx_setValue(value: AnyObject!, priority: AnyObject? = nil) -> Observable<Firebase> {
         let query = self
-        return create({ (observer: AnyObserver<Firebase>) -> Disposable in
+        return Observable.create({ (observer: AnyObserver<Firebase>) -> Disposable in
             if let priority = priority {
                 query.ref.setValue(value, andPriority: priority, withCompletionBlock: { (error, firebase) -> Void in
                     if let error = error {
