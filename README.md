@@ -11,7 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-This library is built on Swift 2.1 and needs XCode 7 to work.
+This library is built on Swift 2.1 and needs Xcode 7 to work.
 This library is build for RxSwift 2.0.0-alpha 4 or higher. Please take note of the syntax changes when migrating from an
 older version of Swift to Swift 2 or higher.
 
@@ -32,7 +32,7 @@ import FirebaseRxSwiftExtensions
 
 ### Highly Recommended
 
-## Use DiposeBags
+## Use DisposeBags
 I highly recommend always having a `disposeBag` available in every controller.
 It's very important to dispose the subscription or else Firebase may never stop listening when ViewControllers are deallocated
 
@@ -124,7 +124,7 @@ You can easily observe your authentication state
         }
 ```
 
-You can authenicate with respective methods
+You can authenticate with respective methods
 
 ```swift
     rx_auth(email: String, password: String) -> Observable<FAuthData>
