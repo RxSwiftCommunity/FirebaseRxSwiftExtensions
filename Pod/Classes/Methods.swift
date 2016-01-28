@@ -154,6 +154,9 @@ public extension FQuery {
     
     func rx_setValue(value: AnyObject!, priority: AnyObject? = nil) -> Observable<Firebase> {
         let query = self
+        
+        
+        
         return Observable.create({ (observer: AnyObserver<Firebase>) -> Disposable in
             if let priority = priority {
                 query.ref.setValue(value, andPriority: priority, withCompletionBlock: { (error, firebase) -> Void in
@@ -175,6 +178,36 @@ public extension FQuery {
                 })
             }
             return AnonymousDisposable{}
+        })
+    }
+    
+    func rx_removeValue() -> Observable<Firebase> {
+        let query = self
+        return Observable.create({ (observer: AnyObserver<Firebase>) -> Disposable in
+            query.ref.removeValueWithCompletionBlock({ (err, ref) -> Void in
+                if let err = err {
+                    observer.onError(err)
+                }else if let ref = ref {
+                    observer.onNext(ref)
+                    observer.onCompleted()
+                }
+            })
+            return AnonymousDisposable{}
+        })
+    }
+    
+    func rx_runTransactionBlock(block: ((FMutableData!) -> FTransactionResult!)!) -> Observable<(isCommitted: Bool, snapshot : FDataSnapshot)> {
+        let query = self
+        return Observable.create({ (observer) -> Disposable in
+            query.ref.runTransactionBlock(block) { (err, isCommitted, snapshot) -> Void in
+                if let err = err {
+                    observer.onError(err)
+                } else if let snapshot = snapshot {
+                    observer.onNext((isCommitted: isCommitted, snapshot: snapshot))
+                    observer.onCompleted()
+                }
+            }
+            return AnonymousDisposable {}
         })
     }
 }
