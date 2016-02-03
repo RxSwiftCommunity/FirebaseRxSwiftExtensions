@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FirebaseRxSwiftExtensions"
-  s.version          = "2.0.7"
+  s.version          = "2.0.8"
   s.summary          = "Untangle your messy Firebase code with RxSwift Extension Methods"
 
   s.description      = "Firebase is a block or closure based API, unfortunately doing anything robust takes a lot of nesting.
@@ -20,8 +20,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/mbalex99/FirebaseRxSwiftExtensions.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/mbalex99'
 
-  s.platform     = :ios, '8.0'
-  s.platform     = :osx, '10.10'
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
