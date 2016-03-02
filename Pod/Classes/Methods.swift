@@ -4,8 +4,8 @@ import RxSwift
 //Authentication Extension Methods
 public extension FQuery {
     /**
-        - Returns: An `Observable<FAuthData?>`, `FAuthData?` will be nil if the user is logged out.
-    */
+     - Returns: An `Observable<FAuthData?>`, `FAuthData?` will be nil if the user is logged out.
+     */
     var rx_authObservable :Observable<FAuthData?> {
         get {
             return Observable.create({ (observer: AnyObserver<FAuthData?>) -> Disposable in
@@ -31,7 +31,7 @@ public extension FQuery {
                     observer.on(.Completed)
                 }
             })
-            return AnonymousDisposable{}
+            return NopDisposable.instance
         })
     }
     
@@ -47,8 +47,7 @@ public extension FQuery {
                     observer.on(.Completed)
                 }
             })
-            
-            return AnonymousDisposable{}
+            return NopDisposable.instance
         })
     }
     
@@ -63,7 +62,7 @@ public extension FQuery {
                     observer.on(.Completed)
                 }
             })
-            return AnonymousDisposable{}
+            return NopDisposable.instance
         })
     }
     
@@ -79,7 +78,7 @@ public extension FQuery {
                     observer.on(.Completed)
                 }
             })
-            return AnonymousDisposable{}
+            return NopDisposable.instance
         })
     }
     
@@ -94,7 +93,7 @@ public extension FQuery {
                     observer.on(.Completed)
                 }
             })
-            return AnonymousDisposable{}
+            return NopDisposable.instance
         })
     }
     
@@ -113,8 +112,8 @@ public extension FQuery {
         })
     }
     /**
-    - Returns: A tuple `Observable<(FDataSnapshot, String)>` with the first value as the snapshot and the second value as the sibling key
-    */
+     - Returns: A tuple `Observable<(FDataSnapshot, String)>` with the first value as the snapshot and the second value as the sibling key
+     */
     func rx_observeWithSiblingKey(eventType: FEventType) -> Observable<(FDataSnapshot, String?)> {
         let ref = self;
         
@@ -122,8 +121,8 @@ public extension FQuery {
             let listener = ref.observeEventType(eventType, andPreviousSiblingKeyWithBlock: { (snapshot, siblingKey) -> Void in
                 let tuple : (FDataSnapshot, String?) = (snapshot, siblingKey)
                 observer.on(.Next(tuple))
-            }, withCancelBlock: { (error) -> Void in
-                observer.on(.Error(error))
+                }, withCancelBlock: { (error) -> Void in
+                    observer.on(.Error(error))
             })
             return AnonymousDisposable{
                 ref.removeObserverWithHandle(listener)
@@ -132,8 +131,8 @@ public extension FQuery {
     }
     
     /**
-    - Returns: The firebase reference where the update occured
-    */
+     - Returns: The firebase reference where the update occured
+     */
     func rx_updateChildValues(values: [NSObject: AnyObject!]) -> Observable<Firebase> {
         let query = self
         return Observable.create({ (observer: AnyObserver<Firebase>) -> Disposable in
@@ -145,18 +144,12 @@ public extension FQuery {
                     observer.on(.Completed)
                 }
             })
-            
-
-            
-            return AnonymousDisposable{}
+            return NopDisposable.instance
         })
     }
     
     func rx_setValue(value: AnyObject!, priority: AnyObject? = nil) -> Observable<Firebase> {
         let query = self
-        
-        
-        
         return Observable.create({ (observer: AnyObserver<Firebase>) -> Disposable in
             if let priority = priority {
                 query.ref.setValue(value, andPriority: priority, withCompletionBlock: { (error, firebase) -> Void in
@@ -177,7 +170,7 @@ public extension FQuery {
                     }
                 })
             }
-            return AnonymousDisposable{}
+            return NopDisposable.instance
         })
     }
     
@@ -192,7 +185,7 @@ public extension FQuery {
                     observer.onCompleted()
                 }
             })
-            return AnonymousDisposable{}
+            return NopDisposable.instance
         })
     }
     
@@ -207,9 +200,81 @@ public extension FQuery {
                     observer.onCompleted()
                 }
             }
-            return AnonymousDisposable {}
+            return NopDisposable.instance
         })
     }
+    
+    func rx_setPriority(priority : AnyObject) -> Observable<Firebase> {
+        return Observable.create({ (observer) -> Disposable in
+            self.ref.setPriority(priority) { (error, ref) -> Void in
+                if let error = error {
+                    observer.onError(error)
+                } else if let ref = ref {
+                    observer.onNext(ref)
+                    observer.onCompleted()
+                }
+                
+            }
+            return NopDisposable.instance
+        })
+    }
+    
+    func rx_onDisconnectSetValue(value: AnyObject, priority: AnyObject? = nil) -> Observable<Firebase> {
+        return Observable.create({ (observer) -> Disposable in
+            if let priority = priority {
+                self.ref.onDisconnectSetValue(value, andPriority: priority, withCompletionBlock: { (error, ref) -> Void in
+                    if let error = error {
+                        observer.onError(error)
+                    } else if let ref = ref {
+                        observer.onNext(ref)
+                        observer.onCompleted()
+                    }
+                })
+                return NopDisposable.instance
+            } else {
+                self.ref.onDisconnectSetValue(value, withCompletionBlock: { (error, ref) -> Void in
+                    if let error = error {
+                        observer.onError(error)
+                    } else if let ref = ref {
+                        observer.onNext(ref)
+                        observer.onCompleted()
+                    }
+                })
+                return NopDisposable.instance
+            }
+        })
+    }
+    
+    func rx_onDisconnectUpdateValue(values: [NSObject: AnyObject]) -> Observable<Firebase> {
+        return Observable.create({ (observer) -> Disposable in
+            self.ref.onDisconnectUpdateChildValues(values, withCompletionBlock: { (error, ref) -> Void in
+                if let error = error {
+                    observer.onError(error)
+                } else if let ref = ref {
+                    observer.onNext(ref)
+                    observer.onCompleted()
+                }
+            })
+            
+            return NopDisposable.instance
+        })
+    }
+    
+    func rx_onDisconnectRemoveValueWithCompletionBlock() -> Observable<Firebase> {
+        return Observable.create({ (observer) -> Disposable in
+            self.ref.onDisconnectRemoveValueWithCompletionBlock({ (error, ref) -> Void in
+                if let error = error {
+                    observer.onError(error)
+                } else if let ref = ref {
+                    observer.onNext(ref)
+                    observer.onCompleted()
+                }
+            })
+            return NopDisposable.instance
+        })
+    }
+    
+    
 }
 
 public extension ObservableType where E : FDataSnapshot {
