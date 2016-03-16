@@ -113,9 +113,9 @@ public extension FQuery {
         })
     }
     
-    func rx_removeUser(email: String!, password: String!) -> Observable<[NSObject : AnyObject]> {
+    func rx_removeUser(email: String!, password: String!) -> Observable<Void> {
         let query = self
-        return Observable.create({ (observer: AnyObserver<[NSObject : AnyObject]>) -> Disposable in
+        return Observable.create({ (observer: AnyObserver<Void>) -> Disposable in
             query.ref.removeUser(email, password: password) { error in
                 if let error = error  {
                     observer.on(.Error(error))
