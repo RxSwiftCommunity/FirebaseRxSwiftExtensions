@@ -127,7 +127,7 @@ public extension FQuery {
         })
     }
     
-    func rx_resetPasswordForUser(email: String!) -> Observable<Void> {
+    func rx_resetPasswordForUser(email: String) -> Observable<Void> {
         let query = self
         return Observable.create({ (observer: AnyObserver<Void>) -> Disposable in
             query.ref.resetPasswordForUser(email) { error in
