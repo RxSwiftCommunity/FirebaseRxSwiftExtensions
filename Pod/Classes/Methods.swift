@@ -98,7 +98,7 @@ public extension FQuery {
         })
     }
     
-    func rx_createUser(email: String!, password: String!) -> Observable<[NSObject : AnyObject]> {
+    func rx_createUser(email: String, password: String) -> Observable<[NSObject : AnyObject]> {
         let query = self
         return Observable.create({ (observer: AnyObserver<[NSObject : AnyObject]>) -> Disposable in
             query.ref.createUser(email, password: password) { (error, userData) in
@@ -113,7 +113,7 @@ public extension FQuery {
         })
     }
     
-    func rx_removeUser(email: String!, password: String!) -> Observable<Void> {
+    func rx_removeUser(email: String, password: String) -> Observable<Void> {
         let query = self
         return Observable.create({ (observer: AnyObserver<Void>) -> Disposable in
             query.ref.removeUser(email, password: password) { error in
@@ -141,7 +141,7 @@ public extension FQuery {
         })
     }
     
-    func rx_changeEmailForUser(email: String!, password: String!, toNewEmail: String!) -> Observable<Void> {
+    func rx_changeEmailForUser(email: String, password: String, toNewEmail: String) -> Observable<Void> {
         let query = self
         return Observable.create({ (observer: AnyObserver<Void>) -> Disposable in
             query.ref.changeEmailForUser(email, password: password, toNewEmail: toNewEmail) { error in
@@ -155,7 +155,7 @@ public extension FQuery {
         })
     }
     
-    func rx_changePasswordForUser(email: String!, fromOld: String!, toNew: String!) -> Observable<Void> {
+    func rx_changePasswordForUser(email: String, fromOld: String, toNew: String) -> Observable<Void> {
         let query = self
         return Observable.create({ (observer: AnyObserver<Void>) -> Disposable in
             query.ref.changePasswordForUser(email, fromOld: fromOld, toNew: toNew) { error in
