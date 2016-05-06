@@ -98,6 +98,77 @@ public extension FQuery {
         })
     }
     
+    func rx_createUser(email: String, password: String) -> Observable<[NSObject : AnyObject]> {
+        let query = self
+        return Observable.create({ (observer: AnyObserver<[NSObject : AnyObject]>) -> Disposable in
+            query.ref.createUser(email, password: password) { (error, userData) in
+                if let error = error  {
+                    observer.on(.Error(error))
+                } else {
+                    observer.on(.Next(userData))
+                    observer.on(.Completed)
+                }
+            }
+            return NopDisposable.instance
+        })
+    }
+    
+    func rx_removeUser(email: String, password: String) -> Observable<Void> {
+        let query = self
+        return Observable.create({ (observer: AnyObserver<Void>) -> Disposable in
+            query.ref.removeUser(email, password: password) { error in
+                if let error = error  {
+                    observer.on(.Error(error))
+                } else {
+                    observer.on(.Completed)
+                }
+            }
+            return NopDisposable.instance
+        })
+    }
+    
+    func rx_resetPasswordForUser(email: String) -> Observable<Void> {
+        let query = self
+        return Observable.create({ (observer: AnyObserver<Void>) -> Disposable in
+            query.ref.resetPasswordForUser(email) { error in
+                if let error = error  {
+                    observer.on(.Error(error))
+                } else {
+                    observer.onCompleted()
+                }
+            }
+            return NopDisposable.instance
+        })
+    }
+    
+    func rx_changeEmailForUser(email: String, password: String, toNewEmail: String) -> Observable<Void> {
+        let query = self
+        return Observable.create({ (observer: AnyObserver<Void>) -> Disposable in
+            query.ref.changeEmailForUser(email, password: password, toNewEmail: toNewEmail) { error in
+                if let error = error  {
+                    observer.on(.Error(error))
+                } else {
+                    observer.on(.Completed)
+                }
+            }
+            return NopDisposable.instance
+        })
+    }
+    
+    func rx_changePasswordForUser(email: String, fromOld: String, toNew: String) -> Observable<Void> {
+        let query = self
+        return Observable.create({ (observer: AnyObserver<Void>) -> Disposable in
+            query.ref.changePasswordForUser(email, fromOld: fromOld, toNew: toNew) { error in
+                if let error = error  {
+                    observer.on(.Error(error))
+                } else {
+                    observer.on(.Completed)
+                }
+            }
+            return NopDisposable.instance
+        })
+    }
+    
     
     func rx_observe(eventType: FEventType) -> Observable<FDataSnapshot> {
         let ref = self;
