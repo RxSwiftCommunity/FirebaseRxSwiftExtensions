@@ -11,8 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-This library is built on Swift 2.1 and needs Xcode 7 to work.
-This library is build for RxSwift 2.0.0-alpha 4 or higher. Please take note of the syntax changes when migrating from an
+This library is built on Swift 2.2 and needs Xcode 7 or higher to work.
+This library is build for RxSwift 2.5 or higher. Please take note of the syntax changes when migrating from an
 older version of Swift to Swift 2 or higher.
 
 ## Installation
@@ -132,6 +132,7 @@ You can authenticate with respective methods
     rx_authWithOAuthProvider(provider: String, token: String) -> Observable<FAuthData>
     rx_authWithOAuthProvider(provider: String, parameters: [NSObject: AnyObject]) -> Observable<FAuthData>
     rx_authAnonymously() -> Observable<FAuthData>
+    rx_createUser(username: String, password: String) -> Observable<[NSObject: AnyObject]>
 ```
 
 More authentication methods to come!
