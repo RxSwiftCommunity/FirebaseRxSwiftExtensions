@@ -28,5 +28,5 @@ Pod::Spec.new do |s|
 
   s.ios.dependency 'Firebase', '~> 2.5.1'
   s.osx.dependency 'FirebaseOSX', '~> 2.5.1'
-  s.dependency 'RxSwift', '~> 2.2'
+  s.dependency 'RxSwift', '~> 2.5.0'
 end
