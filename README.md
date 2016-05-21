@@ -5,6 +5,15 @@
 [![License](https://img.shields.io/cocoapods/l/FirebaseRxSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/FirebaseRxSwiftExtensions)
 [![Platform](https://img.shields.io/cocoapods/p/FirebaseRxSwiftExtensions.svg?style=flat)](http://cocoapods.org/pods/FirebaseRxSwiftExtensions)
 
+## WARNING
+
+This project is for Firebase 2.x. Firebase 2.x will still work with your database but it doesn't have any support for the new packages. I will support this project as long as Firebase supports 2.x. 
+
+This cannot be used Firebase 3.x is not a simple upgrade and currently their podspec is incorrectly configured to be used in any 3rd party project. We expect this to be addressed soon as their projects Firebase UI & GeoFire will probably need updating. Please follow this issue https://github.com/RxSwiftCommunity/FirebaseRxSwiftExtensions/issues/8 for more updates. 
+
+Firebase 3.x library is much larger and complex and will be a seperate project called : RxFirebase (https://github.com/RxSwiftCommunity/RxFirebase)
+
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
